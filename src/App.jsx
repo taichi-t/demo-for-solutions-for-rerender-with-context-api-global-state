@@ -1,4 +1,5 @@
 import React from 'react';
+import ComponentWithMemo from './ComponentWithMemo';
 import Component from './Component';
 
 const initialState = {
@@ -28,7 +29,7 @@ const CounterProvider = ({ children }) => {
       state,
       dispatch,
     }),
-    [state, dispatch]
+    [state]
   );
 
   // const value = {
@@ -43,11 +44,12 @@ const CounterProvider = ({ children }) => {
 
 const App = () => {
   const [, renderComponent] = React.useState(null);
-  console.log('<App/> rendered');
+  console.log('<App/> renders');
   return (
     <CounterProvider>
       <button onClick={() => renderComponent({})}>Render App</button>
-      <Component />
+      <ComponentWithMemo />
+      {/* <Component /> */}
     </CounterProvider>
   );
 };

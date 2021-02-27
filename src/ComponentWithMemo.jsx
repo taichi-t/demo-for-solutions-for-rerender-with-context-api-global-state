@@ -1,8 +1,8 @@
 import React from 'react';
 import { useCounterContext } from './App';
 
-const Component = () => {
-  console.log('<Component/> renders');
+const Component = React.memo(() => {
+  console.log('<ComponentWithMemo/> renders');
   const { state, dispatch } = useCounterContext();
   return (
     <>
@@ -11,6 +11,6 @@ const Component = () => {
       <button onClick={() => dispatch({ type: 'decrement' })}>decrement</button>
     </>
   );
-};
+});
 
 export default Component;

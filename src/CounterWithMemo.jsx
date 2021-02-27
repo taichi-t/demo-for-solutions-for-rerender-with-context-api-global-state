@@ -2,7 +2,7 @@ import React from 'react';
 import { useCounterContext } from './App';
 
 const Component = React.memo(() => {
-  console.log('<ComponentWithMemo/> renders');
+  console.log('<CounterWithMemo/> renders');
   const { state, dispatch } = useCounterContext();
   return (
     <>

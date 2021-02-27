@@ -2,7 +2,7 @@ import React from 'react';
 import { useCounterContext } from './App';
 
 const Component = () => {
-  console.log('<Component/> renders');
+  console.log('<Counter/> renders');
   const { state, dispatch } = useCounterContext();
   return (
     <>

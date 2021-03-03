@@ -2,7 +2,7 @@ import React from 'react';
 // import CounterWithMemo from './CounterWithMemo';
 import Counter from './Counter';
 import Message from './Message';
-// import MessageWithMemo from './MessageWithMemo';
+import MessageWithMemo from './MessageWithMemo';
 
 const initialState = {
   count: 0,
@@ -64,7 +64,7 @@ const App = () => {
     <CounterProvider>
       <button onClick={() => renderComponent({})}>Render App</button>
       <Message />
-      {/* <MessageWithMemo /> */}
+      <MessageWithMemo />
       {/* <CounterWithMemo /> */}
       <Counter />
     </CounterProvider>

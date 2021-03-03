@@ -2,17 +2,29 @@ import React from 'react';
 // import CounterWithMemo from './CounterWithMemo';
 import Counter from './Counter';
 import Message from './Message';
+// import MessageWithMemo from './MessageWithMemo';
 
 const initialState = {
   count: 0,
   text: '😅 ＜ Once rerender, I get a different colour..',
 };
 
+const increment = async () => {
+  return {
+    type: 'INCREMENT',
+  };
+};
+const decrement = async () => {
+  return {
+    type: 'DECREMENT',
+  };
+};
+
 const counterReducer = (state, action) => {
   switch (action.type) {
-    case 'increment':
+    case 'INCREMENT':
       return { ...state, count: state.count + 1 };
-    case 'decrement':
+    case 'DECREMENT':
       return { ...state, count: state.count - 1 };
     default:
       throw new Error();
@@ -28,10 +40,11 @@ const CounterProvider = ({ children }) => {
 
   // const value = React.useMemo(
   //   () => ({
-  //     state,
+  //     count,
+  //     text,
   //     dispatch,
   //   }),
-  //   [state]
+  //   [count, text]
   // );
 
   const value = {
@@ -50,12 +63,13 @@ const App = () => {
   return (
     <CounterProvider>
       <button onClick={() => renderComponent({})}>Render App</button>
-      {/* <ComponentWithMemo /> */}
       <Message />
+      {/* <MessageWithMemo /> */}
+      {/* <CounterWithMemo /> */}
       <Counter />
     </CounterProvider>
   );
 };
 
 export default App;
-export { useCounterContext };
+export { useCounterContext, increment, decrement };
